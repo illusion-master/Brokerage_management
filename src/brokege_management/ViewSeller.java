@@ -71,16 +71,18 @@ public class ViewSeller extends JFrame {
 		lblNewLabel.setFont(new Font("Stencil", Font.BOLD, 25));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(0, 0, 1062, 40);
-		contentPane.add(lblNewLabel);
+		getContentPane().add(lblNewLabel);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 40, 1062, 25);
-		contentPane.add(menuBar);
+		menuBar.setBounds(0, 40, 1062, 30);
+		getContentPane().add(menuBar);
 		
 		JMenu mnBuyer = new JMenu("Buyer");
+		mnBuyer.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		menuBar.add(mnBuyer);
 		
 		JMenuItem mntmAddBuyer = new JMenuItem("Add Buyer");
+		mntmAddBuyer.setFont(new Font("Arial", Font.PLAIN, 15));
 		mntmAddBuyer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFrame add_buyer = new AddBuyer();
@@ -113,6 +115,7 @@ public class ViewSeller extends JFrame {
 		mnBuyer.add(mntmViewBuyer);
 		
 		JMenu mnSeller = new JMenu("Seller");
+		mnSeller.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		menuBar.add(mnSeller);
 		
 		JMenuItem mntmAddSeller = new JMenuItem("Add Seller");
@@ -123,15 +126,33 @@ public class ViewSeller extends JFrame {
 				dispose();
 			}
 		});
+		mntmAddSeller.setFont(new Font("Arial", Font.PLAIN, 15));
 		mnSeller.add(mntmAddSeller);
 		
 		JMenuItem mntmDeleteSeller = new JMenuItem("Delete Seller");
+		mntmDeleteSeller.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame delete_seller = new ViewSeller();
+				delete_seller.setVisible(true);
+				dispose();				
+			}
+		});
+		mntmDeleteSeller.setFont(new Font("Arial", Font.PLAIN, 15));
 		mnSeller.add(mntmDeleteSeller);
 		
 		JMenuItem mntmViewSeller = new JMenuItem("View Sellers");
+		mntmViewSeller.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame view_seller = new ViewSeller();
+				view_seller.setVisible(true);
+				dispose();
+			}
+		});
+		mntmViewSeller.setFont(new Font("Arial", Font.PLAIN, 15));
 		mnSeller.add(mntmViewSeller);
 		
 		JMenu mnItem = new JMenu("Item");
+		mnItem.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		menuBar.add(mnItem);
 		
 		JMenuItem mntmAddItem = new JMenuItem("Add Item");
@@ -146,10 +167,53 @@ public class ViewSeller extends JFrame {
 		mnItem.add(mntmAddItem);
 		
 		JMenuItem mntmDeleteItem = new JMenuItem("Delete Item");
+		mntmDeleteItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame delete_item = new ViewItem();
+				delete_item.setVisible(true);
+				dispose();
+			}
+		});
+		mntmDeleteItem.setFont(new Font("Arial", Font.PLAIN, 15));
 		mnItem.add(mntmDeleteItem);
 		
 		JMenuItem mntmViewItem = new JMenuItem("View Items");
+		mntmViewItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame view_item = new ViewItem();
+				view_item.setVisible(true);
+				dispose();
+			}
+		});
+		mntmViewItem.setFont(new Font("Arial", Font.PLAIN, 15));
 		mnItem.add(mntmViewItem);
+		
+		JMenu mnInvoice = new JMenu("Invoice");
+		mnInvoice.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		menuBar.add(mnInvoice);
+		
+		JMenuItem mntmGenerateInvoice = new JMenuItem("Generate Invoice");
+		mntmGenerateInvoice.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame invoice = new Invoice();
+				invoice.setVisible(true);
+				dispose();
+			}
+		});
+		mntmGenerateInvoice.setFont(new Font("Arial", Font.PLAIN, 15));
+		mnInvoice.add(mntmGenerateInvoice);
+		
+		JMenuItem mntmRecords = new JMenuItem("Records");
+		mntmRecords.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame records = new ViewIndividual();
+				records.setVisible(true);
+				dispose();
+			}
+		});
+		mntmRecords.setFont(new Font("Arial", Font.PLAIN, 15));
+		mnInvoice.add(mntmRecords);		
+
 		
 		table = new JTable();
 		table.setRowHeight(30);
